@@ -20,17 +20,17 @@
         <form action="">
             <div>
                 <div><label class="sr-only" for="email">E-mail</label></div>
-                <input type="email" id="email" name="email" placeholder="exemplo@email.com">
+                <input type="email" id="email" name="email" onchange="validateFields()" placeholder="exemplo@email.com">
             </div>
             <div>
                 <div><label class="sr-only" for="password">Senha</label></div>
-                <input type="password" id="password" name="password" placeholder="Senha">
+                <input type="password" id="password" name="password" onchange="validateFields()" placeholder="Senha">
             </div>
             <div>
-                <button type="button" class="clear">Recuperar senha</button>
+                <button type="button" id="recover-password-button" class="clear" disabled>Recuperar senha</button>
             </div>
             <div>
-                <button type="button" class="solid">Entrar</button>
+                <button type="button" id="login-button" class="solid" disabled>Entrar</button>
             </div>
             <div>
                 <button type="button" class="outline">Registrar</button>
@@ -42,6 +42,7 @@
     <footer>
 
     </footer>
-    
+    <script src="./scripts.js"></script>
 </body>
+
 </html>
