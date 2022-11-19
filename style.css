@@ -5,17 +5,28 @@
   }
 
 body {
-    background: #2985F5;
+    background: #3c8cec;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 3rem;
+    background-color: #fefefe;
+    padding: 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 0.2rem 0.2rem 0.5em #144d94;
 }
 
 #logo {
-    width: 19rem;
+    width: 17rem;
+    color: #3c8cec;
 }
 
 form {
@@ -37,7 +48,7 @@ input, button {
     padding: 0.8rem;
     margin-bottom: 0.8rem;
     width: -webkit-fill-available;
-    border: none;
+    border: 1px solid #3c8cec;
     border-radius: 0.25rem;
 }
 
@@ -53,16 +64,17 @@ button[disabled]{
 
 .clear {
     background: transparent;
-    color: white;
+    color: #3c8cec;
+    border: none;
 }
 
 .solid {
-    background: white;
-    color: #2985F5;
+    background: #3c8cec;
+    color: white;
 }
 
 .outline {
     background: transparent;
-    color: white;
-    border: 1px solid white;
+    color: #3c8cec;
+    border: 1px solid #3c8cec;
 }
