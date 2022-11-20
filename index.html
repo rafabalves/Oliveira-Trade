@@ -18,7 +18,6 @@
                 <div class="form-field">
                     <div><label class="sr-only" for="email">E-mail</label></div>
                     <input type="email" id="email" name="email" onchange="OnChangeEmail()" placeholder="exemplo@email.com">
-                    <div class="error" id="email-required-error">E-mail é obrigatório</div>
                     <div class="error" id="email-invalid-error">E-mail inválido</div>
                 </div>
                 <div class="form-field">
@@ -30,10 +29,10 @@
                     <button type="button" id="recover-password-button" class="clear" disabled>Recuperar senha</button>
                 </div>
                 <div>
-                    <button type="button" id="login-button" class="solid" disabled>Entrar</button>
+                    <button type="button" id="login-button" class="solid" disabled onclick="login()">Entrar</button>
                 </div>
                 <div>
-                    <button type="button" class="outline">Registrar</button>
+                    <button type="button" class="outline" onclick="register()">Registrar</button>
                 </div>
                 
             </form>
