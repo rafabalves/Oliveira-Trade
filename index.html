@@ -16,11 +16,14 @@
             <form action="">
                 <div>
                     <div><label class="sr-only" for="email">E-mail</label></div>
-                    <input type="email" id="email" name="email" onchange="validateFields()" placeholder="exemplo@email.com">
+                    <input type="email" id="email" name="email" onchange="OnChangeEmail()" placeholder="exemplo@email.com">
+                    <div class="error" id="email-required-error">O e-mail é obrigatório</div>
+                    <div class="error" id="email-invalid-error">O e-mail é inválido</div>
                 </div>
                 <div>
                     <div><label class="sr-only" for="password">Senha</label></div>
-                    <input type="password" id="password" name="password" onchange="validateFields()" placeholder="Senha">
+                    <input type="password" id="password" name="password" onchange="OnChangePassword()" placeholder="Senha">
+                    <div class="error" id="password-required-error">A senha é obrigatória</div>
                 </div>
                 <div>
                     <button type="button" id="recover-password-button" class="clear" disabled>Recuperar senha</button>
@@ -38,6 +41,7 @@
     <footer>
 
     </footer>
+
     <script src="./scripts.js"></script>
 </body>
 
