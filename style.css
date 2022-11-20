@@ -33,64 +33,20 @@ body{
 form{
     width: 19rem;
 }
-.sr-only{
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-}
 
-input, button{
+button{
     padding: 0.8rem;
-    margin-bottom: 0.8rem;
-    width: -webkit-fill-available;
+    width: 100%;
     border: 1px solid #3c8cec;
+    border-radius: 0.25rem; 
+}
+input{
+    padding: 0.8rem;
+    width: 100%;
+    border: 1px solid #cfcfcf;
     border-radius: 0.25rem;
-    
 }
 
-input:focus{
-    outline: 1px solid #1b5fb3;
-}
-
-button:focus{
-    outline: none;
-}
-
-button{        
-    cursor: pointer;
-}
-button:active {
-    opacity: 0.8;
-}
-button[disabled]{
-    opacity: 0.8;
-}
-
-.clear{
-    background: transparent;
-    color: #3c8cec;
-    border: none;
-}
-
-.solid{
-    background: #3c8cec;
-    color: white;
-}
-
-.outline{
-    background: transparent;
-    color: #3c8cec;
-    border: 1px solid #3c8cec;
-}
-
-.error{
-    color: white;
-    background-color: red;
-    display: none;
+.form-field{
+    margin-bottom: 0.8rem;
 }

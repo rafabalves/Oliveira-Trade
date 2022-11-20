@@ -1,0 +1,60 @@
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.clear{
+    background: transparent;
+    color: #3c8cec;
+    border: none;
+}
+
+.solid{
+    background: #3c8cec;
+    color: white;
+}
+
+.outline{
+    background: transparent;
+    color: #3c8cec;
+    border: 1px solid #3c8cec;
+}
+
+.error{
+    color: #f73c3c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+    padding: 0.2rem;
+    border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
+    display: none;
+}
+
+input:focus{
+    outline: 1px solid #1b5fb3;
+    border: 1px solid #1b5fb3;
+}
+
+button:focus{
+    outline: none;
+}
+
+button{        
+    cursor: pointer;
+    margin-bottom: 0.8rem;
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+button[disabled]{
+    opacity: 0.8;
+}
+

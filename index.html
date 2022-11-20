@@ -8,19 +8,20 @@
     <title>Oliveira Trade</title>
 
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./global.css">
 </head>
 <body>
         
     <main id="container">
             <img id="logo" src="./Assets/logo.svg" alt="Logo caracterizada por um ícone fundamentado em barras retangulares verticais e o nome da marca Oliveira Trade ao lado">
             <form action="">
-                <div>
+                <div class="form-field">
                     <div><label class="sr-only" for="email">E-mail</label></div>
                     <input type="email" id="email" name="email" onchange="OnChangeEmail()" placeholder="exemplo@email.com">
-                    <div class="error" id="email-required-error">O e-mail é obrigatório</div>
-                    <div class="error" id="email-invalid-error">O e-mail é inválido</div>
+                    <div class="error" id="email-required-error">E-mail é obrigatório</div>
+                    <div class="error" id="email-invalid-error">E-mail inválido</div>
                 </div>
-                <div>
+                <div class="form-field">
                     <div><label class="sr-only" for="password">Senha</label></div>
                     <input type="password" id="password" name="password" onchange="OnChangePassword()" placeholder="Senha">
                     <div class="error" id="password-required-error">A senha é obrigatória</div>
@@ -43,6 +44,7 @@
     </footer>
 
     <script src="./scripts.js"></script>
+    <script src="./validations.js"></script>
 </body>
 
 </html>
