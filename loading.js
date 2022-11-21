@@ -3,7 +3,7 @@ function showLoading(){
     div.classList.add("loading", "centralize");
 
     const label = document.createElement("label");
-    label.innerText = "Carregando...";
+    label.innerText = "...";
     div.appendChild(label);
 
     document.body.appendChild(div);
