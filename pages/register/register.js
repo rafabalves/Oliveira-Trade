@@ -49,6 +49,10 @@ function isFormValid(){
 
 }
 
+function SignIn(){
+    window.location.href = "../../index.html";
+}
+
 const formRegister = {
     email: () => document.getElementById("email"),
     password: () => document.getElementById("password"),
