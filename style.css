@@ -2,3 +2,8 @@
     width: 17rem;
     color: #3c8cec;
 }
+
+#register-button:hover{
+    background: #3c8cec;
+    color: white;
+}
