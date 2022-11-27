@@ -20,6 +20,23 @@ function OnChangeConfirmPassword(){
     toggleCreateButtonDisable();
 }
 
+function register(){
+    showLoading();
+    const email = formRegister.email().value;
+    const password = formRegister.password().value;
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
+        hideLoading();
+        window.location.href = "../home/home.html"
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    })
+}
+
+function getErrorMessage(error){
+    return error.message;
+}
+
 function validatePasswordMatch(){
     const password = formRegister.password().value;
     const confirmPassword = formRegister.confirmPassword().value;

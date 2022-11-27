@@ -37,7 +37,7 @@
             </div>
 
             <div>
-                <button type="button" class="solid" id="create-account-button" disabled>Criar conta</button>
+                <button type="button" class="solid" id="create-account-button" disabled onclick="register()">Criar conta</button>
             </div>
 
             <div class="centralize">
@@ -52,7 +52,11 @@
     </footer>
     <script src="../../index.html"></script>
     <script src="./register.js"></script>
-    <script src="/validations.js"></script>
+    <script src="../../validations.js"></script>
+    <script src="../../loading.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
+    <script src="../../firebase-init.js"></script>
 </body>
 
 </html>
