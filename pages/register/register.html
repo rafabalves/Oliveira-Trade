@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Oliveira Trade</title>
 
     <link rel="stylesheet" href="/global.css">
     <link rel="stylesheet" href="./register.css">
 </head>
+
 <body class="centralize">
     <main id="container">
         <header>
             <h2>Crie sua conta</h2>
             <p>Informe seus dados</p>
         </header>
-    
+
         <form>
             <div class="form-field">
                 <div><label class="sr-only" for="email">E-mail</label></div>
                 <input type="email" name="" id="email" placeholder="exemplo@email.com" onchange="OnChangeEmail()">
                 <div class="error" id="email-invalid-error">E-mail inválido</div>
             </div>
-            
+
             <div class="form-field">
                 <div><label class="sr-only" for="">Senha</label></div>
                 <input type="password" name="" id="password" placeholder="Senha" onchange="OnChangePassword()">
                 <div class="error" id="password-min-length-error">A senha deve conter pelo menos 6 caracteres</div>
             </div>
-            
+
             <div class="form-field">
                 <div><label class="sr-only" for="">Confirmar senha</label></div>
-                <input type="password" name="" id="confirm-password" placeholder="Confirmar senha" onchange="OnChangeConfirmPassword()">
+                <input type="password" name="" id="confirm-password" placeholder="Confirmar senha"
+                    onchange="OnChangeConfirmPassword()">
                 <div class="error" id="password-doesnt-match-error">As senhas devem ser iguais</div>
             </div>
 
             <div>
-                <button type="button" class="solid" id="create-account-button" disabled onclick="register()">Criar conta</button>
+                <button type="button" class="solid" id="create-account-button" disabled onclick="register()">Criar
+                    conta</button>
             </div>
 
             <div class="centralize">
-                <button type="button" class="clear" onclick="SignIn()">Entrar</button>
+                <button type="button" class="outline" id="signIn-button" onclick="SignIn()">Entrar</button>
             </div>
-            
+
         </form>
     </main>
 
     <footer>
 
     </footer>
-    <script src="../../index.html"></script>
     <script src="./register.js"></script>
     <script src="../../validations.js"></script>
     <script src="../../loading.js"></script>

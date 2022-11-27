@@ -34,6 +34,9 @@ function register(){
 }
 
 function getErrorMessage(error){
+    if(error.code == "auth/email-already-in-use"){
+        return "Este e-mail já está em uso. Tente outro."
+    }
     return error.message;
 }
 
