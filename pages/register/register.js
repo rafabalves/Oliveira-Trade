@@ -1,3 +1,9 @@
+firebase.auth().onAuthStateChanged(user => {
+    if(user){
+        window.location.href = "../home/home.html";
+    }
+})
+
 function OnChangeEmail(){
     const email = formRegister.email().value;
      formRegister.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
