@@ -14,8 +14,3 @@ header p{
     font-size: 0.8rem;
     text-align: start;
 }
-
-#signIn-button:hover{
-    background: #3c8cec;
-    color: white;
-}
