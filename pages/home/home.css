@@ -16,3 +16,44 @@ main {
     align-items: center;
     display: flex;
 }
+
+#avatarIcon {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+#userData{
+    display: flex;
+    flex-direction: column;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-color: #fefefe;
+    padding: 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 0.2rem 0.2rem 0.5em #144d94;
+}
+
+.cardField{
+    padding: 0.5rem;
+    width: 100%;
+    border: solid 1px #cfcfcf;
+    border-radius: 0.25rem;
+}
+
+legend{
+    color: #464646;
+}
+
+.inLine {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#userData{
+    gap: 0.5rem;
+}
