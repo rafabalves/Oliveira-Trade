@@ -12,6 +12,20 @@ function OnChangeEmail(){
     toggleCreateButtonDisable();
 }
 
+function OnChangeDate(){
+    const birthDate = formRegister.birthDate().value;
+    formRegister.birthDate().style.borderColor = birthDate ? "#3c8cec" : "#f73c3c";
+    
+    // toggleCreateButtonDisable();
+}
+
+function OnChangeName(){
+    const name = formRegister.name().value;
+    formRegister.name().style.borderColor = name ? "#3c8cec" : "#f73c3c";
+    
+    // toggleCreateButtonDisable();
+}
+
 function OnChangePassword(){
     const password = formRegister.password().value;
     formRegister.passwordMinLengthError().style.display = password.length >= 6 ? "none" : "block";
@@ -26,17 +40,19 @@ function OnChangeConfirmPassword(){
     toggleCreateButtonDisable();
 }
 
-function register(){
-    showLoading();
+function register(event){
+    event.preventDefault();
+    console.log(event.target.elements.email.value);
+    //showLoading();
     const email = formRegister.email().value;
     const password = formRegister.password().value;
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
-        hideLoading();
-        window.location.href = "../home/home.html"
-    }).catch(error => {
-        hideLoading();
-        alert(getErrorMessage(error));
-    })
+    // firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
+    //     hideLoading();
+    //     window.location.href = "../home/home.html"
+    // }).catch(error => {
+    //     hideLoading();
+    //     alert(getErrorMessage(error));
+    // })
 }
 
 function getErrorMessage(error){
@@ -72,6 +88,7 @@ function isFormValid(){
     }else{
         return true;
     }
+    //FAZER PARA OS OUTROS CAMPOS OBRIGATORIOS TBM!
 
 }
 
@@ -80,9 +97,11 @@ function SignIn(){
 }
 
 const formRegister = {
+    name: () => document.getElementById("name"),
     email: () => document.getElementById("email"),
     password: () => document.getElementById("password"),
     confirmPassword: () => document.getElementById("confirm-password"),
+    birthDate: () => document.getElementById("birth-date"),
     emailInvalidError: () => document.getElementById("email-invalid-error"),
     passwordMinLengthError: () => document.getElementById("password-min-length-error"),
     passwordDoesntMatchError: () => document.getElementById("password-doesnt-match-error"),

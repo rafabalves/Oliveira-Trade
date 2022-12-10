@@ -19,28 +19,51 @@
             <p>Informe seus dados</p>
         </header>
 
-        <form>
+        <form onsubmit="register(event)">
+            <div class="form-field">
+                <div><label class="sr-only" for="name">Nome</label></div>
+                <input type="text" placeholder="Nome" id="name" onchange="OnChangeName()" required>
+            </div>
+
             <div class="form-field">
                 <div><label class="sr-only" for="email">E-mail</label></div>
-                <input type="email" name="" id="email" placeholder="exemplo@email.com" onchange="OnChangeEmail()">
+                <input type="email" id="email" placeholder="exemplo@email.com" onchange="OnChangeEmail()" required>
                 <div class="error" id="email-invalid-error">E-mail inválido</div>
             </div>
 
             <div class="form-field">
                 <div><label class="sr-only" for="">Senha</label></div>
-                <input type="password" name="" id="password" placeholder="Senha" onchange="OnChangePassword()">
+                <input type="password" id="password" placeholder="Senha" onchange="OnChangePassword()" required>
                 <div class="error" id="password-min-length-error">A senha deve conter pelo menos 6 caracteres</div>
             </div>
 
             <div class="form-field">
                 <div><label class="sr-only" for="">Confirmar senha</label></div>
-                <input type="password" name="" id="confirm-password" placeholder="Confirmar senha"
-                    onchange="OnChangeConfirmPassword()">
+                <input type="password" id="confirm-password" placeholder="Confirmar senha"
+                    onchange="OnChangeConfirmPassword()" required>
                 <div class="error" id="password-doesnt-match-error">As senhas devem ser iguais</div>
             </div>
 
+            <div class="form-field">
+                <input type="date" id="birth-date" onchange="OnChangeDate()" required>
+            </div>
+
+
+            <fieldset class="form-field fieldset">
+                <legend>Gênero:</legend>
+                <input type="radio" name="gender" id="masc" value="masc" checked required>
+                <label for="masc">Masculino</label>
+
+                <input type="radio" name="gender" id="fem" value="fem"required>
+                <label for="fem">Feminino</label>
+
+                <input type="radio" name="gender" id="other" value="other" required>
+                <label for="other">Outro</label>
+            </fieldset>
+
+
             <div>
-                <button type="button" class="solid" id="create-account-button" disabled onclick="register()">Criar
+                <button type="submit" class="solid" id="create-account-button" disabled>Criar
                     conta</button>
             </div>
 
@@ -57,11 +80,11 @@
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
     <script src="../../firebase-init.js"></script>
-    
+
     <script src="./register.js"></script>
     <script src="../../validations.js"></script>
     <script src="../../loading.js"></script>
-    
+
 </body>
 
 </html>
