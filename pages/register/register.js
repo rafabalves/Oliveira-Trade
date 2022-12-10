@@ -14,16 +14,18 @@ function OnChangeEmail(){
 
 function OnChangeDate(){
     const birthDate = formRegister.birthDate().value;
+    formRegister.dateInvalidError().style.display =  birthDate ? "none" : "block";
     formRegister.birthDate().style.borderColor = birthDate ? "#3c8cec" : "#f73c3c";
     
-    // toggleCreateButtonDisable();
+    toggleCreateButtonDisable();
 }
 
 function OnChangeName(){
     const name = formRegister.name().value;
+    formRegister.nameInvalidError().style.display =  name ? "none" : "block";
     formRegister.name().style.borderColor = name ? "#3c8cec" : "#f73c3c";
-    
-    // toggleCreateButtonDisable();
+
+    toggleCreateButtonDisable();
 }
 
 function OnChangePassword(){
@@ -42,10 +44,14 @@ function OnChangeConfirmPassword(){
 
 function register(event){
     event.preventDefault();
-    console.log(event.target.elements.email.value);
+    console.log(event.target.elements);
     //showLoading();
-    const email = formRegister.email().value;
-    const password = formRegister.password().value;
+    const email = event.target.elements.email.value;
+    const password = event.target.elements.password.value;
+    const birthDate = event.target.elements.birthDate.value;
+    const gender = event.target.elements.gender.value;
+
+    console.log(email, password, birthDate, gender);
     // firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
     //     hideLoading();
     //     window.location.href = "../home/home.html"
@@ -78,6 +84,8 @@ function isFormValid(){
     const email = formRegister.email().value;
     const password = formRegister.password().value;
     const confirmPassword = formRegister.confirmPassword().value;
+    const name = formRegister.name().value;
+    const birthDate = formRegister.birthDate().value;
 
     if(!validateEmail(email)){
         return false;
@@ -85,10 +93,13 @@ function isFormValid(){
         return false;
     }else if(password != confirmPassword){
         return false;
+    }else if(!name){
+        return false;
+    }else if(!birthDate){
+        return false;
     }else{
         return true;
     }
-    //FAZER PARA OS OUTROS CAMPOS OBRIGATORIOS TBM!
 
 }
 
@@ -101,10 +112,12 @@ const formRegister = {
     email: () => document.getElementById("email"),
     password: () => document.getElementById("password"),
     confirmPassword: () => document.getElementById("confirm-password"),
-    birthDate: () => document.getElementById("birth-date"),
+    birthDate: () => document.getElementById("birthDate"),
+    nameInvalidError: () => document.getElementById("name-invalid-error"),
     emailInvalidError: () => document.getElementById("email-invalid-error"),
     passwordMinLengthError: () => document.getElementById("password-min-length-error"),
     passwordDoesntMatchError: () => document.getElementById("password-doesnt-match-error"),
+    dateInvalidError: () => document.getElementById("date-invalid-error"),
     createAccountButton: () => document.getElementById("create-account-button"),
     
 }

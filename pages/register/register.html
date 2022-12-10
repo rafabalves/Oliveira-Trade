@@ -23,6 +23,7 @@
             <div class="form-field">
                 <div><label class="sr-only" for="name">Nome</label></div>
                 <input type="text" placeholder="Nome" id="name" onchange="OnChangeName()" required>
+                <div class="error" id="name-invalid-error">O nome é obrigatório</div>
             </div>
 
             <div class="form-field">
@@ -45,7 +46,8 @@
             </div>
 
             <div class="form-field">
-                <input type="date" id="birth-date" onchange="OnChangeDate()" required>
+                <input type="date" id="birthDate" onchange="OnChangeDate()" required>
+                <div class="error" id="date-invalid-error">A data de nascimento é obrigatória</div>
             </div>
 
 

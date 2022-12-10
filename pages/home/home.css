@@ -8,6 +8,7 @@ header button {
     background: transparent;
     color: #ffffff;
     border: 1px solid #ffffff;
+    margin: 1rem;
 }
 
 main {
