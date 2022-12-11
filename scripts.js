@@ -15,17 +15,6 @@ function OnChangePassword(){
     togglePasswordErrors();
 }
 
-function login(){
-    showLoading();
-    firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value).then(() => {
-        hideLoading();
-        window.location.href = "./pages/home/home.html";
-    }).catch(error =>{
-        hideLoading();
-        alert(getErrorMessage(error));
-    });
-}
-
 function getErrorMessage(error){
     if(error.code == "auth/user-not-found"){
         return "Usuário não encontrado"
@@ -35,10 +24,6 @@ function getErrorMessage(error){
     }
     return error.message;
     
-}
-
-function register(){
-    window.location.href = "./pages/register/register.html";
 }
 
 function recoverPassword(){
@@ -52,12 +37,27 @@ function recoverPassword(){
     });
 }
 
+function login(){
+    showLoading();
+    firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value).then(() => {
+        hideLoading();
+        window.location.href = "./pages/home/home.html";
+    }).catch(error =>{
+        hideLoading();
+        alert(getErrorMessage(error));
+    });
+}
+
+
+
+function register(){
+    window.location.href = "./pages/register/register.html";
+}
+
+
+
 function isEmailValid(){
     const email = form.email().value;
-    /*if(!email){
-        return false; 
-        //se email = vazio, retorna falso
-    }*/
     return validateEmail(email);
 }
 
@@ -84,11 +84,9 @@ function togglePasswordErrors(){
 function toggleButtonsDisable(){
     const emailValid = isEmailValid();
     form.recoverPasswordButton().disabled = !emailValid; 
-    //Se o email for valido (verdadeiro), disabled recebe false (!true), ou seja, habilitado
 
     const passwordValid = isPassWordValid();
     form.loginButton().disabled = !passwordValid || !emailValid;
-    //o botão de login recebe disabled = true (desabilitado) quando passwordValid = false OU emailValid = false
 }
 
 const form = {

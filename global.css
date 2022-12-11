@@ -4,6 +4,33 @@
     box-sizing: border-box;
 }
 
+body {
+
+    background-image: linear-gradient(to bottom right, #114e99, #1757a7, #4a95f0, #5899e7);
+    flex-direction: column;
+    height: 100vh;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fefefe;
+    padding: 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 0.2rem 0.2rem 0.5em #144d94;
+}
+
+.centralize{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+form {
+    width: 19rem;
+}
+
 .sr-only{
     position: absolute;
     width: 1px;
@@ -14,6 +41,10 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+}
+
+.form-field {
+    margin-bottom: 0.8rem;
 }
 
 .clear{
@@ -45,7 +76,7 @@
 }
 
 .loading{
-    background: rgba(0, 0, 0, 0.5);
+    background: #00000080;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -57,44 +88,8 @@
     color: white;
 }
 
-.centralize{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-
 input:focus{
     border-width: 2px;
-}
-
-button{        
-    cursor: pointer;
-    margin-bottom: 0.8rem;
-}
-
-button:active {
-    opacity: 0.8;
-}
-
-button[disabled]{
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.form-field {
-    margin-bottom: 0.8rem;
-}
-
-form {
-    width: 19rem;
-}
-
-button {
-    padding: 0.8rem;
-    width: 100%;
-    border: 1px solid #3c8cec;
-    border-radius: 0.25rem;
-    outline: none;
 }
 
 input {
@@ -105,19 +100,21 @@ input {
     outline: none;
 }
 
-#container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fefefe;
-    padding: 2rem;
+button{        
+    cursor: pointer;
+    margin-bottom: 0.8rem;
+    padding: 0.8rem;
+    width: 100%;
+    border: 1px solid #3c8cec;
     border-radius: 0.25rem;
-    box-shadow: 0.2rem 0.2rem 0.5em #144d94;
+    outline: none;
 }
 
-body {
+button:active {
+    opacity: 0.8;
+}
 
-    background-image: linear-gradient(to bottom right, #114e99, #1757a7, #4a95f0, #5899e7);
-    flex-direction: column;
-    height: 100vh;
+button[disabled]{
+    opacity: 0.6;
+    cursor: not-allowed;
 }

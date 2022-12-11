@@ -17,6 +17,16 @@ main {
     display: flex;
 }
 
+#card{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #fefefe;
+    padding: 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 0.2rem 0.2rem 0.5em #144d94;
+}
+
 #avatarIcon {
     width: 8rem;
     height: 8rem;
@@ -26,16 +36,6 @@ main {
 #user-data{
     display: flex;
     flex-direction: column;
-}
-
-#card{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background-color: #fefefe;
-    padding: 2rem;
-    border-radius: 0.25rem;
-    box-shadow: 0.2rem 0.2rem 0.5em #144d94;
 }
 
 .cardField{
@@ -52,9 +52,5 @@ legend{
 
 .inLine {
     display: flex;
-    gap: 0.5rem;
-}
-
-#userData{
     gap: 0.5rem;
 }

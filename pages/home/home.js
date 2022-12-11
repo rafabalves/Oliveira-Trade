@@ -6,23 +6,9 @@ function logout() {
     })
 }
 
-firebase.auth().onAuthStateChanged(user => {
-    if (user){
-        findUserData(user);
-    }
-})
-
-function findUserData(user) {
-    firebase.firestore()
-        .collection('userData')
-        .where("user.uid", "==", user.uid)
-        .get()
-        .then(snapshot => {
-            const userData = snapshot.docs.map(doc => doc.data());
-            console.log(userData);
-            addUserDataToScreen(userData[0]);
-        })
-
+function formatDate(date) {
+    const splittedDate = date.split("-");
+    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;
 }
 
 function addUserDataToScreen(userData) {
@@ -32,9 +18,19 @@ function addUserDataToScreen(userData) {
     document.getElementById("gender").innerHTML = userData.gender;
 }
 
-function formatDate(date) {
-    const splittedDate = date.split("-");
-    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;
+function findUserData(user) {
+    firebase.firestore()
+        .collection('userData')
+        .where("user.uid", "==", user.uid)
+        .get()
+        .then(snapshot => {
+            const userData = snapshot.docs.map(doc => doc.data());
+            addUserDataToScreen(userData[0]);
+        })
 }
 
-
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        findUserData(user);
+    }
+})
