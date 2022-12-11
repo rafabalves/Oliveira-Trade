@@ -1,57 +1,59 @@
 firebase.auth().onAuthStateChanged(user => {
-    if(user){
+    if (user) {
         window.location.href = "../home/home.html";
     }
 })
 
-function OnChangeEmail(){
+function OnChangeEmail() {
     const email = formRegister.email().value;
-     formRegister.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
+    formRegister.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
     formRegister.email().style.borderColor = validateEmail(email) ? "#3c8cec" : "#f73c3c"
 
     toggleCreateButtonDisable();
 }
 
-function OnChangeDate(){
+function OnChangeDate() {
     const birthDate = formRegister.birthDate().value;
-    formRegister.dateInvalidError().style.display =  birthDate ? "none" : "block";
+    formRegister.dateInvalidError().style.display = birthDate ? "none" : "block";
     formRegister.birthDate().style.borderColor = birthDate ? "#3c8cec" : "#f73c3c";
-    
+
     toggleCreateButtonDisable();
 }
 
-function OnChangeName(){
+function OnChangeName() {
     const name = formRegister.name().value;
-    formRegister.nameInvalidError().style.display =  name ? "none" : "block";
+    formRegister.nameInvalidError().style.display = name ? "none" : "block";
     formRegister.name().style.borderColor = name ? "#3c8cec" : "#f73c3c";
 
     toggleCreateButtonDisable();
 }
 
-function OnChangePassword(){
+function OnChangePassword() {
     const password = formRegister.password().value;
     formRegister.passwordMinLengthError().style.display = password.length >= 6 ? "none" : "block";
     formRegister.password().style.borderColor = password.length >= 6 ? "#3c8cec" : "#f73c3c";
-    
+
     validatePasswordMatch(); //Para validar a senha quando ambos os campos são editados
     toggleCreateButtonDisable();
 }
 
-function OnChangeConfirmPassword(){
+function OnChangeConfirmPassword() {
     validatePasswordMatch();//Para validar a senha quando ambos os campos são editados
     toggleCreateButtonDisable();
 }
 
-function register(event){
+function register(event) {
     event.preventDefault();
     console.log(event.target.elements);
     //showLoading();
+    const name = event.target.elements.name.value;
     const email = event.target.elements.email.value;
     const password = event.target.elements.password.value;
     const birthDate = event.target.elements.birthDate.value;
     const gender = event.target.elements.gender.value;
 
-    console.log(email, password, birthDate, gender);
+    console.log(name,email, password, birthDate, gender);
+    saveUserData(name, email, birthDate, gender);
     // firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
     //     hideLoading();
     //     window.location.href = "../home/home.html"
@@ -61,49 +63,59 @@ function register(event){
     // })
 }
 
-function getErrorMessage(error){
-    if(error.code == "auth/email-already-in-use"){
+function saveUserData(name, email, birthDate, gender) {
+    const userData = {
+        name: name,
+        email: email,
+        birthDate: birthDate,
+        gender: gender
+    }
+    console.log(userData);
+}
+
+function getErrorMessage(error) {
+    if (error.code == "auth/email-already-in-use") {
         return "Este e-mail já está em uso. Tente outro."
     }
     return error.message;
 }
 
-function validatePasswordMatch(){
+function validatePasswordMatch() {
     const password = formRegister.password().value;
     const confirmPassword = formRegister.confirmPassword().value;
-    
+
     formRegister.passwordDoesntMatchError().style.display = password == confirmPassword ? "none" : "block";
     formRegister.confirmPassword().style.borderColor = password == confirmPassword ? "#3c8cec" : "#f73c3c";
 }
 
-function toggleCreateButtonDisable(){
+function toggleCreateButtonDisable() {
     formRegister.createAccountButton().disabled = !isFormValid();
 }
 
-function isFormValid(){
+function isFormValid() {
     const email = formRegister.email().value;
     const password = formRegister.password().value;
     const confirmPassword = formRegister.confirmPassword().value;
     const name = formRegister.name().value;
     const birthDate = formRegister.birthDate().value;
 
-    if(!validateEmail(email)){
+    if (!validateEmail(email)) {
         return false;
-    }else if(password.length < 6){
+    } else if (password.length < 6) {
         return false;
-    }else if(password != confirmPassword){
+    } else if (password != confirmPassword) {
         return false;
-    }else if(!name){
+    } else if (!name) {
         return false;
-    }else if(!birthDate){
+    } else if (!birthDate) {
         return false;
-    }else{
+    } else {
         return true;
     }
 
 }
 
-function SignIn(){
+function SignIn() {
     window.location.href = "../../index.html";
 }
 
@@ -119,5 +131,5 @@ const formRegister = {
     passwordDoesntMatchError: () => document.getElementById("password-doesnt-match-error"),
     dateInvalidError: () => document.getElementById("date-invalid-error"),
     createAccountButton: () => document.getElementById("create-account-button"),
-    
+
 }
