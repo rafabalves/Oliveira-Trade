@@ -1,9 +1,3 @@
-// firebase.auth().onAuthStateChanged(user => {
-//     if (user) {
-//         window.location.href = "../home/home.html";
-//     }
-// })
-
 function OnChangeEmail() {
     const email = formRegister.email().value;
     formRegister.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
@@ -83,7 +77,9 @@ function saveUserData(name, email, birthDate, gender) {
         .add(userData)
         .then(() => {
             alert("Conta criada com sucesso!");
-            window.location.href = "../home/home.html";
+            firebase.auth().signOut().then(() => {
+                window.location.href = "../../index.html";
+            })
         }).catch(() => {
             alert("Erro ao criar a conta!");
         })
