@@ -19,6 +19,7 @@ function findUserData(user) {
         .get()
         .then(snapshot => {
             const userData = snapshot.docs.map(doc => doc.data());
+            console.log(userData);
             addUserDataToScreen(userData[0]);
         })
 

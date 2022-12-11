@@ -1,8 +1,8 @@
-firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-        window.location.href = "../home/home.html";
-    }
-})
+// firebase.auth().onAuthStateChanged(user => {
+//     if (user) {
+//         window.location.href = "../home/home.html";
+//     }
+// })
 
 function OnChangeEmail() {
     const email = formRegister.email().value;
@@ -52,15 +52,18 @@ function register(event) {
     const birthDate = event.target.elements.birthDate.value;
     const gender = event.target.elements.gender.value;
 
-    console.log(name,email, password, birthDate, gender);
-    saveUserData(name, email, birthDate, gender);
-    // firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
-    //     hideLoading();
-    //     window.location.href = "../home/home.html"
-    // }).catch(error => {
-    //     hideLoading();
-    //     alert(getErrorMessage(error));
-    // })
+    console.log(name, email, password, birthDate, gender);
+    
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
+        showLoading();
+        firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+            saveUserData(name, email, birthDate, gender);
+            hideLoading();
+        })
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    })
 }
 
 function saveUserData(name, email, birthDate, gender) {
@@ -68,9 +71,22 @@ function saveUserData(name, email, birthDate, gender) {
         name: name,
         email: email,
         birthDate: birthDate,
-        gender: gender
+        gender: gender,
+        user: {
+            uid: firebase.auth().currentUser.uid
+        }
     }
     console.log(userData);
+
+    firebase.firestore()
+        .collection("userData")
+        .add(userData)
+        .then(() => {
+            alert("Conta criada com sucesso!");
+            window.location.href = "../home/home.html";
+        }).catch(() => {
+            alert("Erro ao criar a conta!");
+        })
 }
 
 function getErrorMessage(error) {
