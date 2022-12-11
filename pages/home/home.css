@@ -23,15 +23,15 @@ main {
     border-radius: 50%;
 }
 
-#userData{
+#user-data{
     display: flex;
     flex-direction: column;
 }
 
-.card{
+#card{
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     background-color: #fefefe;
     padding: 2rem;
     border-radius: 0.25rem;
