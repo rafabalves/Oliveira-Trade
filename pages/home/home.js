@@ -6,9 +6,16 @@ function logout() {
     })
 }
 
-function findUserData() {
+firebase.auth().onAuthStateChanged(user => {
+    if (user){
+        findUserData(user);
+    }
+})
+
+function findUserData(user) {
     firebase.firestore()
         .collection('userData')
+        .where("user.uid", "==", user.uid)
         .get()
         .then(snapshot => {
             const userData = snapshot.docs.map(doc => doc.data());
@@ -29,5 +36,4 @@ function formatDate(date) {
     return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;
 }
 
-findUserData();
 
